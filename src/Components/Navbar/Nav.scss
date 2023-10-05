@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+
+  .top-header {
+    max-width: 100%;
+    display: flex;
+    padding: 10px, 10px;
+    background: #f6f7f8;
+
+    .icon {
+      margin-left: 20px;
+      color: #ababab;
+      font-size: 19px;
+    }
+
+    .info {
+      p {
+        margin-left: 10px;
+        color: #8a8a8a;
+      }
+    }
+  }
+
+  .mid-header {
+    display: flex;
+    padding: 20px 40px;
+    max-width: 100%;
+    justify-content: space-between;
+
+    .logo {
+      img {
+        cursor: pointer;
+        object-fit: cover;
+      }
+    }
+    .search-box {
+      input {
+        padding: 10px 10px;
+        outline: none;
+        background: #f6f7f8;
+        border-top-left-radius: 5px;
+        width: 250px;
+        border: none;
+      }
+
+      button {
+        padding: 10px 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: none;
+        outline: none;
+        width: 50px;
+        background: #cd1e76;
+        color: #fff;
+        cursor: pointer;
+        margin-right: 30px;
+        transition: 0.65;
+        font-weight: 600;
+
+        &:hover {
+          background: #fed700;
+          color: #cd1e76;
+        }
+      }
+    }
+    .user {
+      display: flex;
+      margin-right: 30px;
+
+      .icon {
+        margin-right: 10px;
+      }
+      .btn {
+        button {
+          border: none;
+          outline: none;
+          background: none;
+          cursor: pointer;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .last-header {
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    background: #232323;
+
+    .user-profile {
+      display: flex;
+      margin-top: 10px;
+
+      .icon {
+        padding: 10px 10px;
+        background: #fff;
+        border-radius: 10px;
+      }
+
+      .info {
+        margin-left: 10px;
+
+        h2 {
+          color: #fff;
+          font-size: 14px;
+        }
+        p {
+          color: #ababab;
+          font-size: 14px;
+        }
+      }
+    }
+    .nav {
+      margin-top: 15px;
+
+      ul {
+        display: flex;
+
+        li {
+          list-style: none;
+
+          .link {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.65s;
+            font-weight: 600;
+
+            &:hover {
+              color: #fed700;
+            }
+          }
+        }
+      }
+    }
+    .offer {
+      display: flex;
+      margin-right: 20px;
+      padding: 10px 20px;
+      background: #fed700;
+      border-radius: 10px;
+      align-items: center;
+
+      p {
+        
+        text-transform: uppercase;
+        color: #232323;
+        font-weight: 600;
+        font-size: 14px;
+      }
+    }
+  }
+}
