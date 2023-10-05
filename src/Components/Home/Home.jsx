@@ -1,16 +1,24 @@
 import "./Home.scss";
 import { Link } from "react-router-dom";
 import Homeproduct from "./Home-product";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 //importing icons
-import { AiFillEye, AiFillHeart } from "react-icons/ai";
+import { AiFillEye, AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { BiLogoFacebook, BiLogoTwitter, BiLogoYoutube } from "react-icons/bi";
 
 //importing images
-import T1 from '../../assets/T1.avif';
-
+import T1 from "../../assets/T1.avif";
+import banner1 from "../../assets/Multi-Banner-1.avif";
+import banner2 from "../../assets/Multi-banner-2.avif";
+import banner3 from "../../assets/Multi-Banner-3.Webp";
+import banner4 from "../../assets/Multi-banner-4.avif";
+import banner5 from "../../assets/Multi-banner-5.Webp";
 
 const Home = () => {
+  const [newProduct, setNewProduct] = useState([]);
+  const [featuredProduct, setFeatureProduct] = useState([]);
+  const [topProduct, setTopProduct] = useState([]);
   const [trendingProduct, setTrendingProduct] = useState(Homeproduct);
   const filtercate = (x) => {
     const filterProduct = Homeproduct.filter((curElm) => {
@@ -22,6 +30,31 @@ const Home = () => {
   //All Trending Product
   const allTrendingProduct = () => {
     setTrendingProduct(Homeproduct);
+  };
+
+  //Product Type
+  useEffect(() => {
+    productcategory();
+  },[]);
+
+  const productcategory = () => {
+    //New Product
+    const newcategory = Homeproduct.filter((x) => {
+      return x.type === "new";
+    });
+    setNewProduct(newcategory);
+
+    //Featured Product
+    const featuredcategory = Homeproduct.filter((x) => {
+      return x.type === "featured";
+    });
+    setFeatureProduct(featuredcategory);
+
+    //Top Product
+    const topcategory = Homeproduct.filter((x) => {
+      return x.type === "top";
+    });
+    setTopProduct(topcategory);
   };
   return (
     <div>
@@ -76,10 +109,13 @@ const Home = () => {
                     );
                   })}
                 </div>
+                <div className="div">
+                  <button>Show More </button>
+                </div>
               </div>
             </div>
             <div className="right-box">
-              <div className="container">
+              <div className="right-container">
                 <div className="testimonial">
                   <div className="head">
                     <h3>our testimonial</h3>
@@ -98,8 +134,155 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+                <div className="newsletter">
+                  <div className="head">
+                    <h3>newsletter</h3>
+                  </div>
+                  <div className="form">
+                    <p>join our mailing list</p>
+                    <input
+                      type="email"
+                      placeholder="E-mail"
+                      autoComplete="off"
+                    />
+                    <button>Subscribe</button>
+                    <div className="icon-box">
+                      <div className="icon">
+                        <BiLogoFacebook />
+                      </div>
+                      <div className="icon">
+                        <BiLogoTwitter />
+                      </div>
+                      <div className="icon">
+                        <BiLogoYoutube />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="banner">
+          <div className="container">
+            <div className="left-box">
+              <div className="box">
+                <img src={banner1} alt="banner" />
+              </div>
+              <div className="box">
+                <img src={banner2} alt="banner" />
+              </div>
+            </div>
+            <div className="right-box">
+              <div className="top">
+                <img src={banner3} alt="banner" />
+                <img src={banner4} alt="banner" />
+              </div>
+              <div className="bottom">
+                <img src={banner5} alt="banner" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="product-type">
+          <div className="container">
+            <div className="box">
+              <div className="header">
+                <h2>New Product</h2>
+              </div>
+              {
+                newProduct.map((curElm)=>{
+                  return (
+                    <>
+                      <div className="product-box">
+                        <div className="img-box">
+                          <img src={curElm.image} alt="" />
+                        </div>
+                        <div className="detail">
+                          <h3>{curElm.Name}</h3>
+                          <p>${curElm.price}</p>
+                          <div className="icon">
+                            <button>
+                              {" "}
+                              <AiFillEye />
+                            </button>
+                            <button>
+                              <AiFillHeart />
+                            </button>
+                            <button onClick={()=> addtocart (curElm)}><AiOutlineShoppingCart/></button>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })
+              }
+            </div>
+            <div className="box">
+              <div className="header">
+                <h2>Featured Product</h2>
+              </div>
+              {
+                featuredProduct.map((curElm)=>{
+                  return (
+                    <>
+                      <div className="product-box">
+                        <div className="img-box">
+                          <img src={curElm.image} alt="" />
+                        </div>
+                        <div className="detail">
+                          <h3>{curElm.Name}</h3>
+                          <p>${curElm.price}</p>
+                          <div className="icon">
+                            <button>
+                              {" "}
+                              <AiFillEye />
+                            </button>
+                            <button>
+                              <AiFillHeart />
+                            </button>
+                            <button onClick={()=> addtocart (curElm)}><AiOutlineShoppingCart/></button>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })
+              }
+            </div>
+            <div className="box">
+              <div className="header">
+                <h2>Top Product</h2>
+              </div>
+              {
+                topProduct.map((curElm)=>{
+                  return (
+                    <>
+                      <div className="product-box">
+                        <div className="img-box">
+                          <img src={curElm.image} alt="" />
+                        </div>
+                        <div className="detail">
+                          <h3>{curElm.Name}</h3>
+                          <p>${curElm.price}</p>
+                          <div className="icon">
+                            <button>
+                              {" "}
+                              <AiFillEye />
+                            </button>
+                            <button>
+                              <AiFillHeart />
+                            </button>
+                            <button onClick={()=> addtocart (curElm)}><AiOutlineShoppingCart/></button>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })
+              }
+            </div>
+            
           </div>
         </div>
       </div>
