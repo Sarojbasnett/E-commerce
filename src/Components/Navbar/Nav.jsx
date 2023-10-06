@@ -12,7 +12,7 @@ import { CiLogout } from "react-icons/ci";
 import logo from "../../assets/logo.webp";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({search, setSearch, searchproduct}) => {
   const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
   return (
     <div>
@@ -30,8 +30,8 @@ const Nav = () => {
             <img src={logo} alt="" />
           </div>
           <div className="search-box">
-            <input type="text" placeholder="input" />
-            <button>
+            <input type="text" value={search} placeholder="input" onChange={(e)=> setSearch(e.target.value)} />
+            <button onClick={()=> searchproduct()}>
               <AiOutlineSearch />
             </button>
           </div>
@@ -94,7 +94,7 @@ const Nav = () => {
                 <Link to="/" className="link">
                   Home
                 </Link>
-                <Link href="/shop" className="link">
+                <Link to="/shop" className="link">
                   shop
                 </Link>
                 <Link href="/collection" className="link">
