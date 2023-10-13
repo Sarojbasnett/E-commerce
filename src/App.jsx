@@ -11,6 +11,9 @@ function App() {
   //Shop search filter
   const [search, setSearch] = useState("");
 
+  //Cart page
+  const [cart, setCart] = useState([]);
+
   //Shop category Filter
   const Filter = (x) => {
     const catefilter = Homeproduct.filter((product) => {
@@ -24,7 +27,6 @@ function App() {
   };
 
   //shop search filter
-
   const searchlength = (search || []).length === 0;
   const searchproduct = () => {
     if (searchlength) {
@@ -37,6 +39,18 @@ function App() {
       setShop(searchfilter);
     }
   };
+  //Cart Page
+  const addtocart = (product) => {
+    const exist = cart.find((x) => {
+      return x.id === product.id;
+    });
+    if (exist) {
+      alert("The item is already added");
+    } else {
+      setCart([...cart, { ...product, qty: 1 }]);
+      alert("Added to cart");
+    }
+  };
 
   return (
     <>
@@ -46,7 +60,14 @@ function App() {
           setSearch={setSearch}
           searchproduct={searchproduct}
         />
-        <Routing shop={shop} Filter={Filter} allcatfilter={allcatfilter} />
+        <Routing
+          shop={shop}
+          Filter={Filter}
+          allcatfilter={allcatfilter}
+          addtocart={addtocart}
+          cart={cart}
+          setCart={setCart}
+        />
         <Footer />
       </BrowserRouter>
     </>

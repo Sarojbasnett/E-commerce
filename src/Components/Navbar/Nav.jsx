@@ -97,8 +97,8 @@ const Nav = ({search, setSearch, searchproduct}) => {
                 <Link to="/shop" className="link">
                   shop
                 </Link>
-                <Link href="/collection" className="link">
-                  Collection
+                <Link to="/cart" className="link">
+                  Cart
                 </Link>
                 <Link href="/about" className="link">
                   About

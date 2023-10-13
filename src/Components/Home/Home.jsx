@@ -15,7 +15,7 @@ import banner3 from "../../assets/Multi-Banner-3.Webp";
 import banner4 from "../../assets/Multi-banner-4.avif";
 import banner5 from "../../assets/Multi-banner-5.Webp";
 
-const Home = () => {
+const Home = ({ addtocart }) => {
   const [newProduct, setNewProduct] = useState([]);
   const [featuredProduct, setFeatureProduct] = useState([]);
   const [topProduct, setTopProduct] = useState([]);
@@ -35,7 +35,7 @@ const Home = () => {
   //Product Type
   useEffect(() => {
     productcategory();
-  },[]);
+  }, []);
 
   const productcategory = () => {
     //New Product
@@ -102,7 +102,12 @@ const Home = () => {
                           <div className="info">
                             <h3>{curElm.Name}</h3>
                             <p>${curElm.price}</p>
-                            <button className="btn">Add To Cart</button>
+                            <button
+                              className="btn"
+                              onClick={() => addtocart(curElm)}
+                            >
+                              Add To Cart
+                            </button>
                           </div>
                         </div>
                       </>
@@ -190,99 +195,98 @@ const Home = () => {
               <div className="header">
                 <h2>New Product</h2>
               </div>
-              {
-                newProduct.map((curElm)=>{
-                  return (
-                    <>
-                      <div className="product-box">
-                        <div className="img-box">
-                          <img src={curElm.image} alt="" />
-                        </div>
-                        <div className="detail">
-                          <h3>{curElm.Name}</h3>
-                          <p>${curElm.price}</p>
-                          <div className="icon">
-                            <button>
-                              {" "}
-                              <AiFillEye />
-                            </button>
-                            <button>
-                              <AiFillHeart />
-                            </button>
-                            <button onClick={()=> addtocart (curElm)}><AiOutlineShoppingCart/></button>
-                          </div>
+              {newProduct.map((curElm) => {
+                return (
+                  <>
+                    <div className="product-box">
+                      <div className="img-box">
+                        <img src={curElm.image} alt="" />
+                      </div>
+                      <div className="detail">
+                        <h3>{curElm.Name}</h3>
+                        <p>${curElm.price}</p>
+                        <div className="icon">
+                          <button>
+                            {" "}
+                            <AiFillEye />
+                          </button>
+                          <button>
+                            <AiFillHeart />
+                          </button>
+                          <button onClick={() => addtocart(curElm)}>
+                            <AiOutlineShoppingCart />
+                          </button>
                         </div>
                       </div>
-                    </>
-                  );
-                })
-              }
+                    </div>
+                  </>
+                );
+              })}
             </div>
             <div className="box">
               <div className="header">
                 <h2>Featured Product</h2>
               </div>
-              {
-                featuredProduct.map((curElm)=>{
-                  return (
-                    <>
-                      <div className="product-box">
-                        <div className="img-box">
-                          <img src={curElm.image} alt="" />
-                        </div>
-                        <div className="detail">
-                          <h3>{curElm.Name}</h3>
-                          <p>${curElm.price}</p>
-                          <div className="icon">
-                            <button>
-                              {" "}
-                              <AiFillEye />
-                            </button>
-                            <button>
-                              <AiFillHeart />
-                            </button>
-                            <button onClick={()=> addtocart (curElm)}><AiOutlineShoppingCart/></button>
-                          </div>
+              {featuredProduct.map((curElm) => {
+                return (
+                  <>
+                    <div className="product-box">
+                      <div className="img-box">
+                        <img src={curElm.image} alt="" />
+                      </div>
+                      <div className="detail">
+                        <h3>{curElm.Name}</h3>
+                        <p>${curElm.price}</p>
+                        <div className="icon">
+                          <button>
+                            {" "}
+                            <AiFillEye />
+                          </button>
+                          <button>
+                            <AiFillHeart />
+                          </button>
+                          <button onClick={() => addtocart(curElm)}>
+                            <AiOutlineShoppingCart />
+                          </button>
                         </div>
                       </div>
-                    </>
-                  );
-                })
-              }
+                    </div>
+                  </>
+                );
+              })}
             </div>
             <div className="box">
               <div className="header">
                 <h2>Top Product</h2>
               </div>
-              {
-                topProduct.map((curElm)=>{
-                  return (
-                    <>
-                      <div className="product-box">
-                        <div className="img-box">
-                          <img src={curElm.image} alt="" />
-                        </div>
-                        <div className="detail">
-                          <h3>{curElm.Name}</h3>
-                          <p>${curElm.price}</p>
-                          <div className="icon">
-                            <button>
-                              {" "}
-                              <AiFillEye />
-                            </button>
-                            <button>
-                              <AiFillHeart />
-                            </button>
-                            <button onClick={()=> addtocart (curElm)}><AiOutlineShoppingCart/></button>
-                          </div>
+              {topProduct.map((curElm) => {
+                return (
+                  <>
+                    <div className="product-box">
+                      <div className="img-box">
+                        <img src={curElm.image} alt="" />
+                      </div>
+                      <div className="detail">
+                        <h3>{curElm.Name}</h3>
+                        <p>${curElm.price}</p>
+                        <div className="icon">
+                          <button>
+                            {" "}
+                            <AiFillEye />
+                          </button>
+                          <button>
+                            <AiFillHeart />
+                          </button>
+                          <button onClick={() => addtocart(curElm)}>
+                            <AiOutlineShoppingCart />
+                          </button>
                         </div>
                       </div>
-                    </>
-                  );
-                })
-              }
+                    </div>
+                  </>
+                );
+              })}
             </div>
-            
           </div>
         </div>
       </div>

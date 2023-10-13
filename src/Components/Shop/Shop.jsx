@@ -6,7 +6,7 @@ import shoptop from "../../assets/shop_top.webp";
 
 //importing icons
 import { AiFillHeart, AiFillEye } from "react-icons/ai";
-const Shop = ({ shop, Filter, allcatfilter }) => {
+const Shop = ({ shop, Filter, allcatfilter, addtocart }) => {
   return (
     <>
       <div className="shop">
@@ -64,7 +64,7 @@ const Shop = ({ shop, Filter, allcatfilter }) => {
                         <div className="detail">
                           <h3>{curElm.Name}</h3>
                           <p>${curElm.price}</p>
-                          <button>Add To Cart</button>
+                          <button onClick={()=> addtocart(curElm)}>Add To Cart</button>
                         </div>
                       </div>
                     </>
