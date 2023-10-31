@@ -14,6 +14,24 @@ function App() {
   //Cart page
   const [cart, setCart] = useState([]);
 
+  // Toggle Product Detail
+  const [showDetails, setShowDetails] = useState(false);
+
+  // Detail Page Data
+  const [detail, setDetail] = useState([]);
+
+  //Showing Detail Box
+  const detailPage = (product) => {
+    const detaildata = [{ product }];
+    const productdetail = detaildata[0]["product"];
+    setDetail(productdetail);
+    setShowDetails(true);
+  };
+
+  const closeDetails = () => {
+    setShowDetails(false);
+  };
+
   //Shop category Filter
   const Filter = (x) => {
     const catefilter = Homeproduct.filter((product) => {
@@ -67,6 +85,10 @@ function App() {
           addtocart={addtocart}
           cart={cart}
           setCart={setCart}
+          showDetails={showDetails}
+          detail={detail}
+          closeDetails={closeDetails}
+          detailPage={detailPage}
         />
         <Footer />
       </BrowserRouter>

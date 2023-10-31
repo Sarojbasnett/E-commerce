@@ -14,12 +14,16 @@ import banner2 from "../../assets/Multi-banner-2.avif";
 import banner3 from "../../assets/Multi-Banner-3.Webp";
 import banner4 from "../../assets/Multi-banner-4.avif";
 import banner5 from "../../assets/Multi-banner-5.Webp";
+import ItemDetails from "../../Common/ItemDetails";
 
 const Home = ({ addtocart }) => {
   const [newProduct, setNewProduct] = useState([]);
   const [featuredProduct, setFeatureProduct] = useState([]);
   const [topProduct, setTopProduct] = useState([]);
   const [trendingProduct, setTrendingProduct] = useState(Homeproduct);
+
+  const [showDetails, setShowDetails] = useState(null);
+
   const filtercate = (x) => {
     const filterProduct = Homeproduct.filter((curElm) => {
       return curElm.type === x;
@@ -56,8 +60,21 @@ const Home = ({ addtocart }) => {
     });
     setTopProduct(topcategory);
   };
+
+  const detailPage = (product) => {
+    // const detaildata = [{ product }];
+    // const productdetail = detaildata[0]["product"];
+    // setDetail(productdetail);
+    setShowDetails(product);
+  };
   return (
     <div>
+      {showDetails && (
+        <ItemDetails
+          detail={showDetails}
+          closeDetails={() => setShowDetails(null)}
+        />
+      )}
       <div className="home">
         <div className="top-banner">
           <div className="content">
@@ -91,7 +108,10 @@ const Home = ({ addtocart }) => {
                           <div className="img-box">
                             <img src={curElm.image} alt="" />
                             <div className="icon">
-                              <div className="icon-box">
+                              <div
+                                className="icon-box"
+                                onClick={() => detailPage(curElm)}
+                              >
                                 <AiFillEye />
                               </div>
                               <div className="icon-box">
@@ -206,7 +226,7 @@ const Home = ({ addtocart }) => {
                         <h3>{curElm.Name}</h3>
                         <p>${curElm.price}</p>
                         <div className="icon">
-                          <button>
+                          <button onClick={() => detailPage(curElm)}>
                             {" "}
                             <AiFillEye />
                           </button>

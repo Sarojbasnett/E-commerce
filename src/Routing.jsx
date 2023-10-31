@@ -6,11 +6,25 @@ import Contact from "./Components/Contact/Contact";
 import About from "./Components/About/About";
 import Cart from "./Components/Cart/Cart";
 
-const Routing = ({ shop, Filter, allcatfilter, addtocart , cart, setCart}) => {
+const Routing = ({
+  shop,
+  Filter,
+  allcatfilter,
+  addtocart,
+  cart,
+  setCart,
+  detailPage,
+  detail,
+  showDetails,
+  closeDetails,
+}) => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home addtocart={addtocart} />} />
+        <Route
+          path="/"
+          element={<Home addtocart={addtocart} detailPage={detailPage} />}
+        />
         <Route
           path="/shop"
           element={
@@ -19,6 +33,10 @@ const Routing = ({ shop, Filter, allcatfilter, addtocart , cart, setCart}) => {
               Filter={Filter}
               allcatfilter={allcatfilter}
               addtocart={addtocart}
+              detail={detail}
+              showDetails={showDetails}
+              closeDetails={closeDetails}
+              detailPage={detailPage}
             />
           }
         />
@@ -26,6 +44,7 @@ const Routing = ({ shop, Filter, allcatfilter, addtocart , cart, setCart}) => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );

@@ -6,52 +6,30 @@ import shoptop from "../../assets/shop_top.webp";
 
 
 //importing icons
-import { AiFillEye, AiFillHeart, AiOutlineClose } from "react-icons/ai";
+import { AiFillEye, AiFillHeart } from "react-icons/ai";
+import ItemDetails from "../../Common/ItemDetails";
 import { useState } from "react";
-const Shop = ({ shop, Filter, allcatfilter, addtocart }) => {
-  // Toggle Product Detail
-  const [showDetails, setShowDetails] = useState(false);
+const Shop = ({
+  shop,
+  Filter,
+  allcatfilter,
+  addtocart,
+  
+}) => {
+  // // Toggle Product Detail
+  const [showDetails, setShowDetails] = useState(null);
 
-  // Detail Page Data
-  const [detail, setDetail] = useState([]);
 
-  //Showing Detail Box
+  // //Showing Detail Box
   const detailPage = (product) => {
-    const detaildata = [{ product }];
-    const productdetail = detaildata[0]["product"];
-    setDetail(productdetail);
-    setShowDetails(true);
+    setShowDetails(product);
   };
 
-  const closeDetails = () => {
-    setShowDetails(false);
-  };
   return (
     <>
-      {showDetails ? (
-        <>
-          <div className="product-details">
-            <button className="close-btn" onClick={closeDetails}>
-              <AiOutlineClose />
-            </button>
-            <div className="container">
-              <div className="img_box">
-                <img src={detail.image} alt=""></img>
-              </div>
-              <div className="info">
-                <h4># {detail.cat}</h4>
-                <h2>{detail.Name}</h2>
-                <p>
-                  A Searchcreen Everyone Will Love: Whether your family is
-                  streaming or video chatting with friends tablet A8...
-                </p>
-                <h3>${detail.price}</h3>
-                <button onClick={() => addtocart(detail)}>Add To Cart</button>
-              </div>
-            </div>
-          </div>
-        </>
-      ) : null}
+     {
+      showDetails && <ItemDetails detail={showDetails} closeDetails={()=>setShowDetails(null)}/>
+     }
       <div className="shop">
         <h2>shop</h2>
         <p>Home . shop</p>
@@ -99,7 +77,7 @@ const Shop = ({ shop, Filter, allcatfilter, addtocart }) => {
                             <li>
                               <AiFillHeart />
                             </li>
-                            <li onClick={() => detailPage (curElm)}>
+                            <li onClick={() => detailPage(curElm)}>
                               <AiFillEye />
                             </li>
                           </div>

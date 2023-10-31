@@ -103,7 +103,7 @@ const Nav = ({search, setSearch, searchproduct}) => {
                 <Link href="/about" className="link">
                   About
                 </Link>
-                <Link href="/contact" className="link">
+                <Link to="/contact" className="link">
                   Contact
                 </Link>
               </li>
