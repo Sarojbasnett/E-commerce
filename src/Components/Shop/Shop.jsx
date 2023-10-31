@@ -4,11 +4,54 @@ import "./shop.scss";
 import shopleft from "../../assets/shop_left.avif";
 import shoptop from "../../assets/shop_top.webp";
 
+
 //importing icons
-import { AiFillHeart, AiFillEye } from "react-icons/ai";
+import { AiFillEye, AiFillHeart, AiOutlineClose } from "react-icons/ai";
+import { useState } from "react";
 const Shop = ({ shop, Filter, allcatfilter, addtocart }) => {
+  // Toggle Product Detail
+  const [showDetails, setShowDetails] = useState(false);
+
+  // Detail Page Data
+  const [detail, setDetail] = useState([]);
+
+  //Showing Detail Box
+  const detailPage = (product) => {
+    const detaildata = [{ product }];
+    const productdetail = detaildata[0]["product"];
+    setDetail(productdetail);
+    setShowDetails(true);
+  };
+
+  const closeDetails = () => {
+    setShowDetails(false);
+  };
   return (
     <>
+      {showDetails ? (
+        <>
+          <div className="product-details">
+            <button className="close-btn" onClick={closeDetails}>
+              <AiOutlineClose />
+            </button>
+            <div className="container">
+              <div className="img_box">
+                <img src={detail.image} alt=""></img>
+              </div>
+              <div className="info">
+                <h4># {detail.cat}</h4>
+                <h2>{detail.Name}</h2>
+                <p>
+                  A Searchcreen Everyone Will Love: Whether your family is
+                  streaming or video chatting with friends tablet A8...
+                </p>
+                <h3>${detail.price}</h3>
+                <button onClick={() => addtocart(detail)}>Add To Cart</button>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : null}
       <div className="shop">
         <h2>shop</h2>
         <p>Home . shop</p>
@@ -20,7 +63,7 @@ const Shop = ({ shop, Filter, allcatfilter, addtocart }) => {
               </div>
               <div className="box">
                 <ul>
-                  <li onClick={()=> allcatfilter()}># all product</li>
+                  <li onClick={() => allcatfilter()}># all product</li>
                   <li onClick={() => Filter("tv")}># Tv</li>
                   <li onClick={() => Filter("laptop")}># Laptop</li>
                   <li onClick={() => Filter("watch")}># watch</li>
@@ -56,7 +99,7 @@ const Shop = ({ shop, Filter, allcatfilter, addtocart }) => {
                             <li>
                               <AiFillHeart />
                             </li>
-                            <li>
+                            <li onClick={() => detailPage (curElm)}>
                               <AiFillEye />
                             </li>
                           </div>
@@ -64,7 +107,9 @@ const Shop = ({ shop, Filter, allcatfilter, addtocart }) => {
                         <div className="detail">
                           <h3>{curElm.Name}</h3>
                           <p>${curElm.price}</p>
-                          <button onClick={()=> addtocart(curElm)}>Add To Cart</button>
+                          <button onClick={() => addtocart(curElm)}>
+                            Add To Cart
+                          </button>
                         </div>
                       </div>
                     </>

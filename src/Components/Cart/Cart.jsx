@@ -1,6 +1,6 @@
+import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import "./Cart.scss";
-import { AiOutlineClose } from "react-icons/ai";
 
 const Cart = ({ cart, setCart }) => {
   const navigate = useNavigate();

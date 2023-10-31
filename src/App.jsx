@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
+import Homeproduct from "./Components/Home/Home-product";
 import Nav from "./Components/Navbar/Nav";
 import Routing from "./Routing";
-import { BrowserRouter } from "react-router-dom";
-import Homeproduct from "./Components/Home/Home-product";
 function App() {
   //show page product
   const [shop, setShop] = useState(Homeproduct);
