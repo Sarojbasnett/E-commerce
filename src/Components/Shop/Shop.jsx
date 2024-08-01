@@ -1,24 +1,16 @@
-import "./shop.scss";
+import "./Shop.scss";
 
 //importing images
 import shopleft from "../../assets/shop_left.avif";
 import shoptop from "../../assets/shop_top.webp";
 
-
 //importing icons
 import { AiFillEye, AiFillHeart } from "react-icons/ai";
 import ItemDetails from "../../Common/ItemDetails";
 import { useState } from "react";
-const Shop = ({
-  shop,
-  Filter,
-  allcatfilter,
-  addtocart,
-  
-}) => {
+const Shop = ({ shop, Filter, allcatfilter, addtocart }) => {
   // // Toggle Product Detail
   const [showDetails, setShowDetails] = useState(null);
-
 
   // //Showing Detail Box
   const detailPage = (product) => {
@@ -27,9 +19,12 @@ const Shop = ({
 
   return (
     <>
-     {
-      showDetails && <ItemDetails detail={showDetails} closeDetails={()=>setShowDetails(null)}/>
-     }
+      {showDetails && (
+        <ItemDetails
+          detail={showDetails}
+          closeDetails={() => setShowDetails(null)}
+        />
+      )}
       <div className="shop">
         <h2>shop</h2>
         <p>Home . shop</p>
