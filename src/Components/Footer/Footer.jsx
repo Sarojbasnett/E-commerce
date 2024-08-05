@@ -1,5 +1,5 @@
 import "./Footer.css";
-import logo from "../../assets/logo.webp";
+import logo from "../../assets/sar3.jpg";
 
 import {
   FaPiggyBank,
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
           <div className="right_box">
             <div className="header">
-              <img src={logo} alt=""></img>
+              <img src={logo} alt="" width="175px" height="auto" style={{objectFit: 'contain'}} />
               <p>
                 © 2024 Royal Institute. All rights reserved. Empowering Your Digital World!
               </p>
