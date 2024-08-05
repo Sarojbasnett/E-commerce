@@ -67,6 +67,8 @@ const Home = ({ addtocart }) => {
     // setDetail(productdetail);
     setShowDetails(product);
   };
+
+  const url = 'https://s.daraz.com.np/s.Z0B3'
   return (
     <div>
       {showDetails && (
@@ -150,11 +152,10 @@ const Home = ({ addtocart }) => {
                       <img src={T1} alt="testimonial" />
                     </div>
                     <div className="info">
-                      <h3>Anish Pokhrel</h3>
-                      <h4>Web Developer</h4>
+                      <h3>Anisha Pokhrel</h3>
+                      <h4>Happy customer</h4>
                       <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Dolor!
+                        I recently purchased a laptop from Royal Institute, and I couldn’t be happier with my experience! The website was easy to navigate, the prices were competitive, and the customer service was exceptional. My laptop arrived quickly and in perfect condition. I highly recommend Royal Institute for all your tech needs!
                       </p>
                     </div>
                   </div>
@@ -172,8 +173,8 @@ const Home = ({ addtocart }) => {
                     />
                     <button>Subscribe</button>
                     <div className="icon-box">
-                      <div className="icon">
-                        <BiLogoFacebook />
+                      <div className="icon" onCLick={() => window.open(url, '_blank', 'noopener,noreferrer');}>
+                        <img src="https://img.lazcdn.com/us/domino/1ee015d6a5c62fd0339c88c657c1c183.jpg_2200x2200q80.jpg_.webp" style={{objectFit: 'fill', width: '16px' height: '16px'}} />
                       </div>
                       <div className="icon">
                         <BiLogoTwitter />
