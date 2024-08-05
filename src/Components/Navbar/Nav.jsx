@@ -9,7 +9,7 @@ import { FiLogIn } from "react-icons/fi";
 import { CiLogout } from "react-icons/ci";
 
 //importing images
-import logo from "../../assets/logo.webp";
+import logo from "../../assets/sar3.jpg";
 import { Link } from "react-router-dom";
 
 const Nav = ({search, setSearch, searchproduct}) => {
@@ -27,10 +27,10 @@ const Nav = ({search, setSearch, searchproduct}) => {
         </div>
         <div className="mid-header">
           <div className="logo">
-            <img src={logo} alt="" />
+            <img src={logo} alt="" width="175px" height="auto" style={{objectFit: 'contain'}} />
           </div>
           <div className="search-box">
-            <input type="text" value={search} placeholder="input" onChange={(e)=> setSearch(e.target.value)} />
+            <input type="text" value={search} placeholder="search products" onChange={(e)=> setSearch(e.target.value)} />
             <button onClick={()=> searchproduct()}>
               <AiOutlineSearch />
             </button>
@@ -81,9 +81,6 @@ const Nav = ({search, setSearch, searchproduct}) => {
               <>
                 <div className="icon">
                   <MdOutlineAccountCircle />
-                </div>
-                <div className="info">
-                  <p>Please Login</p>
                 </div>
               </>
             )}
