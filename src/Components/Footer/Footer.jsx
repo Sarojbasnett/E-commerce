@@ -19,7 +19,7 @@ const Footer = () => {
               </div>
               <div className="detail">
                 <h3>Great Saving</h3>
-                <p>Lorem ipsum dolor sit amet,</p>
+                
               </div>
             </div>
             <div className="box">
@@ -28,7 +28,7 @@ const Footer = () => {
               </div>
               <div className="detail">
                 <h3>free delivery</h3>
-                <p>Lorem ipsum dolor sit amet,</p>
+                
               </div>
             </div>
             <div className="box">
@@ -37,7 +37,7 @@ const Footer = () => {
               </div>
               <div className="detail">
                 <h3>24X7 support</h3>
-                <p>Lorem ipsum dolor sit amet,</p>
+               
               </div>
             </div>
             <div className="box">
@@ -46,7 +46,7 @@ const Footer = () => {
               </div>
               <div className="detail">
                 <h3>money back</h3>
-                <p>Lorem ipsum dolor sit amet,</p>
+              
               </div>
             </div>
           </div>
@@ -54,8 +54,7 @@ const Footer = () => {
             <div className="header">
               <img src={logo} alt=""></img>
               <p>
-                Lorem ipsum dolor sit amet, consectetur Nuliscing elit. Duis
-                faucibus ipsum id sem Putconsequat Text.
+                © 2024 Royal Institute. All rights reserved. Empowering Your Digital World!
               </p>
             </div>
             <div className="bottom">
@@ -80,9 +79,11 @@ const Footer = () => {
               <div className="box">
                 <h3>contact us</h3>
                 <ul>
-                  <li>4005, Birtamode Jhapa</li>
-                  <li>+(977)99999999</li>
-                  <li>info@gmail.com</li>
+                  <li>Kerkha</li>
+                  <li>Proprietor - Saroj Basnet</li>
+                  <li>+(977)-9815033612</li>
+                  <li>+(977)-9801558539</li>
+                  <li>royalcomputerinstitute4@gmail.com</li>
                 </ul>
               </div>
             </div>
