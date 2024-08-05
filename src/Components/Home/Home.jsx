@@ -11,9 +11,9 @@ import { BiLogoFacebook, BiLogoTwitter, BiLogoYoutube } from "react-icons/bi";
 import T1 from "../../assets/T1.avif";
 import banner1 from "../../assets/Multi-Banner-1.avif";
 import banner2 from "../../assets/Multi-banner-2.avif";
-import banner3 from "../../assets/Multi-Banner-3.Webp";
+import banner3 from "../../assets/Multi-Banner-3.webp";
 import banner4 from "../../assets/Multi-banner-4.avif";
-import banner5 from "../../assets/Multi-banner-5.Webp";
+import banner5 from "../../assets/Multi-banner-5.webp";
 import ItemDetails from "../../Common/ItemDetails";
 
 const Home = ({ addtocart }) => {
