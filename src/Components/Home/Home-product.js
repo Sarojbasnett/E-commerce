@@ -38,8 +38,8 @@ const Homeproduct = [
   },
   {
     id: 4,
-    Name: "product4",
-    price: "636",
+    Name: "Dell E5470 i5",
+    price: "45000",
     image: p9,
     cat: "laptop",
     type: "new",
