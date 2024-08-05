@@ -174,7 +174,7 @@ const Home = ({ addtocart }) => {
                     <button>Subscribe</button>
                     <div className="icon-box">
                       <div className="icon" onCLick={() => window.open(url, '_blank', 'noopener,noreferrer')}>
-                        <img src="https://img.lazcdn.com/us/domino/1ee015d6a5c62fd0339c88c657c1c183.jpg_2200x2200q80.jpg_.webp" style={{objectFit: 'fill', width: '16px' height: '16px'}} />
+                        <img src="https://img.lazcdn.com/us/domino/1ee015d6a5c62fd0339c88c657c1c183.jpg_2200x2200q80.jpg_.webp" style={{objectFit: 'fill', width: '16px', height: '16px'}} />
                       </div>
                       <div className="icon">
                         <BiLogoTwitter />
