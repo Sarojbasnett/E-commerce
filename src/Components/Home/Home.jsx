@@ -68,7 +68,6 @@ const Home = ({ addtocart }) => {
     setShowDetails(product);
   };
 
-  const url = 'https://s.daraz.com.np/s.Z0B3'
   return (
     <div>
       {showDetails && (
@@ -173,9 +172,11 @@ const Home = ({ addtocart }) => {
                     />
                     <button>Subscribe</button>
                     <div className="icon-box">
-                      <div className="icon" onCLick={() => window.open(url, '_blank', 'noopener,noreferrer')}>
+                      <a className="icon" rel="noopener noreferrer" href="https://s.daraz.com.np/s.Z0B3" target="_blank">
+{/*                       <div className="icon"> */}
                         <img src="https://img.lazcdn.com/us/domino/1ee015d6a5c62fd0339c88c657c1c183.jpg_2200x2200q80.jpg_.webp" style={{objectFit: 'fill', width: '16px', height: '16px'}} />
-                      </div>
+{/*                       </div> */}
+                        </a>
                       <div className="icon">
                         <BiLogoTwitter />
                       </div>
